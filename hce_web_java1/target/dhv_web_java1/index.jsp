@@ -2,11 +2,11 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 <%@page import="model.Sinhvien"%>
-<%@page import="model.Taods_sv"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-    List<Sinhvien> ds =  Taods_sv.getAllSinhvien();   
+    List<Sinhvien> ds = new ArrayList<Sinhvien>();
+    ds= Taods_sv.getAllSinhvien();
     String tenlop = "HCE_JAVA_K20";
 %>
 

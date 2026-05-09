@@ -1,6 +1,7 @@
 package model;
 import java.util.ArrayList;
 import java.util.List;
+import model.Sinhvien;
 public class Taods_sv {
 
     public static List<Sinhvien> getAllSinhvien() {
