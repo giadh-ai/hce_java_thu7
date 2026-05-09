@@ -1,5 +1,58 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<%!
+    // =========================
+    // CLASS SINHVIEN
+    // =========================
+    public class Sinhvien {
+        private String id;
+        private String hoten;
+        private String anh;
+        private String lop;
+        private String email;
+        private String sodienthoai;
+
+        public Sinhvien(String id, String hoten, String anh,
+                         String lop, String email, String sodienthoai) {
+            this.id = id;
+            this.hoten = hoten;
+            this.anh = anh;
+            this.lop = lop;
+            this.email = email;
+            this.sodienthoai = sodienthoai;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getHoten() {
+            return hoten;
+        }
+
+        public String getAnh() {
+            return anh;
+        }
+
+        public String getLop() {
+            return lop;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getSodienthoai() {
+            return sodienthoai;
+        }
+    }
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <link rel="stylesheet" href="assets/css/layout.css"/>
@@ -7,221 +60,170 @@
 <link rel="stylesheet" href="assets/css/menu.css"/>
 <link rel="stylesheet" href="assets/css/jquery.mmenu.all.css"/>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-.layout_ngoaicung
-{
-   display: flex;
-  /*grid-template-columns: 200px 200px 200px;*/
- 
-  grid-row-gap:0px;
-  background-color:#33FF33;
-   overflow: hidden;
- 
+
+.table_sv{
+    width:100%;
+    border-collapse: collapse;
+    margin-top:20px;
+    background:#fff;
 }
 
-.div_rlayout1
-{
-    margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	height:46px;
-	width:100vw;
-	background-color:red;
-	overflow: hidden;
-	
-	
-	
+.table_sv th{
+    background:#ff6600;
+    color:white;
+    padding:10px;
+    border:1px solid #ddd;
 }
 
+.table_sv td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.table_sv img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.title{
+    font-size:28px;
+    color:red;
+    margin-top:20px;
+    font-weight:bold;
+}
 
 </style>
+
 <body>
+
+<!-- HEADER -->
 <header id="header" style="min-height: 169px;">
-	<div class="header_top">
-		<div class="container_main">
-			<div class="container_main">
-				<div class="menu_top">
-					<ul>
-						<li><a target="blank" href="#">Tuyển sinh</a></li>
-													<li><a target="blank" href="#">Sau Đại Học</a></li>
-													<li><a target="blank" href="#">Đề án TS</a></li>
-													<li><a target="blank" href="#">Ba công khai</a></li>
-													<li><a target="blank" href="https://sinhvien.giadinh.edu.vn/">Xem điểm</a></li>
-													<li><a target="blank" href="#">E-learning</a></li>
-													<li><a target="blank" href="#">Thư viện số</a></li>
-													<li><a target="blank" href="#">E-Brochure</a></li>
-												
-												<li><a href="lien-he">Liên hệ</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="header">
-		<div class="container_main">
-			<div class="logo">
-				<a href="">
-					<img src="./assets/images/logo.png" alt="Logo" style="padding-bottom:5px;">				</a>			</div>
-			<div id="main_menu">
-  <div class="box_menu">
-  
-    <nav id="menu" class="menu">
-      <ul>
-        <li class="icon_menu active"><a href="gioi-thieu" title="Giới thiệu chung">Giới thiệu chung</a>
-                       <ul>
-              <div class="container_main">
-                                  <li><a href="tam-nhin-su-mang" title="TẦM NHÌN - SỨ MẠNG"><i class="far fa-angle-right"></i> TẦM NHÌN - SỨ MẠNG</a>                  </li>
-                                  <li><a href="gia-tri-cot-loi" title="GIÁ TRỊ CỐT LÕI"><i class="far fa-angle-right"></i> GIÁ TRỊ CỐT LÕI</a>                  </li>
-                                  <li><a href="lich-su-hinh-thanh-phat-trien" title="LỊCH SỬ HÌNH THÀNH PHÁT TRIỂN"><i class="far fa-angle-right"></i> LỊCH SỬ HÌNH THÀNH PHÁT TRIỂN</a>                  </li>
-                                  <li><a href="co-so-dao-tao" title="CƠ SỞ ĐÀO TẠO"><i class="far fa-angle-right"></i> CƠ SỞ ĐÀO TẠO</a>                  </li>
-                                  <li><a href="thanh-tuu" title="THÀNH TỰU"><i class="far fa-angle-right"></i> THÀNH TỰU</a>                  </li>
-                                  <li><a href="triet-li-giao-duc" title="TRIẾT LÍ GIÁO DỤC"><i class="far fa-angle-right"></i> TRIẾT LÍ GIÁO DỤC</a>                  </li>
-                                  <li><a href="ban-giam-hieu" title="BAN GIÁM HIỆU"><i class="far fa-angle-right"></i> BAN GIÁM HIỆU</a>                  </li>
-                                  <li><a href="phong-ban-trung-tam" title="KHOA/PHÒNG/TRUNG TÂM"><i class="far fa-angle-right"></i> KHOA/PHÒNG/TRUNG TÂM</a>                  </li>
-                              </div>
-            </ul>
-                  </li>
-        <li class="icon_menu "><a href="chuong-trinh-hoc" title="Chương trình học">Chương trình học</a>
-                      <ul>
-              <div class="container_main">
-                                  <li><a href="dao-tao-cu-nhan" title="Đào tạo đại học"><i class="far fa-angle-right"></i> Đào tạo đại học</a>                  </li>
-                                  <li><a href="dao-tao-sau-dai-hoc" title="Đào tạo sau đại học"><i class="far fa-angle-right"></i> Đào tạo sau đại học</a>                  </li>
-                                  <li><a href="dao-tao-van-bang-2" title="ĐÀO TẠO VĂN BẰNG 2"><i class="far fa-angle-right"></i> ĐÀO TẠO VĂN BẰNG 2</a>                  </li>
-                                  <li><a href="khung-chuong-trinh-dao-tao" title="KHUNG CHƯƠNG TRÌNH ĐÀO TẠO"><i class="far fa-angle-right"></i> KHUNG CHƯƠNG TRÌNH ĐÀO TẠO</a>                  </li>
-                                  <li><a href="de-an-mo-nganh" title="ĐỀ ÁN MỞ NGÀNH"><i class="far fa-angle-right"></i> ĐỀ ÁN MỞ NGÀNH</a>                  </li>
-                                  <li><a href="tap-chi-kh-oa-hoc" title="TẠP CHÍ KHOA HỌC"><i class="far fa-angle-right"></i> TẠP CHÍ KHOA HỌC</a>                  </li>
-                              </div>
-            </ul>
-                  </li>
-        <li class="icon_menu "><a href="trai-nghiem-sinh-vien" title="Trải nghiệm sinh viên">Trải nghiệm sinh viên</a>
-                      <ul>
-              <div class="container_main">
-                                  <li><a href="thong-bao" title="THÔNG BÁO"><i class="far fa-angle-right"></i> THÔNG BÁO</a>                  </li>
-                                  <li><a href="hoat-dong-sinh-vien" title="HOẠT ĐỘNG SINH VIÊN"><i class="far fa-angle-right"></i> HOẠT ĐỘNG SINH VIÊN</a>                  </li>
-                              </div>
-            </ul>
-                  </li>
-        <li class="icon_menu "><a href="goc-truyen-thong" title="Góc truyền thông">Bản tin &amp; sự kiện</a>
-                      <ul>
-              <div class="container_main">
-                                  <li><a href="hop-tac-cung-gdu-1" title="Góc báo chí"><i class="far fa-angle-right"></i> Góc báo chí</a>                  </li>
-                                  <li><a href="tap-chi-khoa-hoc" title="TẠP CHÍ KHOA HỌC"><i class="far fa-angle-right"></i> TẠP CHÍ KHOA HỌC</a>                  </li>
-                              </div>
-            </ul>
-                  </li>
-        <li class="icon_menu "><a href="doanh-nghiep" title="Tuyển Dụng -  Việc Làm">Tuyển Dụng -  Việc Làm</a>
-                      <ul>
-              <div class="container_main">
-                                  <li><a href="tuyen-dung-gdu" title="Tuyển Dụng GDU "><i class="far fa-angle-right"></i> Tuyển Dụng GDU </a>                  </li>
-                              </div>
-            </ul>
-                  </li>
-      </ul>
-    </nav>
-  </div>
-</div>
-<div id="menu_mobile">
-  <ul>
-    <li class="icon_menu active"><a href="gioi-thieu" title="Giới thiệu chung">Giới thiệu chung</a>
-              <ul>
-          <div class="container_main">
-                          <li><a href="tam-nhin-su-mang" title="TẦM NHÌN - SỨ MẠNG"><i class="far fa-angle-right"></i> TẦM NHÌN - SỨ MẠNG</a>              </li>
-                          <li><a href="gia-tri-cot-loi" title="GIÁ TRỊ CỐT LÕI"><i class="far fa-angle-right"></i> GIÁ TRỊ CỐT LÕI</a>              </li>
-                          <li><a href="lich-su-hinh-thanh-phat-trien" title="LỊCH SỬ HÌNH THÀNH PHÁT TRIỂN"><i class="far fa-angle-right"></i> LỊCH SỬ HÌNH THÀNH PHÁT TRIỂN</a>              </li>
-                          <li><a href="co-so-dao-tao" title="CƠ SỞ ĐÀO TẠO"><i class="far fa-angle-right"></i> CƠ SỞ ĐÀO TẠO</a>              </li>
-                          <li><a href="thanh-tuu" title="THÀNH TỰU"><i class="far fa-angle-right"></i> THÀNH TỰU</a>              </li>
-                          <li><a href="triet-li-giao-duc" title="TRIẾT LÍ GIÁO DỤC"><i class="far fa-angle-right"></i> TRIẾT LÍ GIÁO DỤC</a>              </li>
-                          <li><a href="ban-giam-hieu" title="BAN GIÁM HIỆU"><i class="far fa-angle-right"></i> BAN GIÁM HIỆU</a>              </li>
-                          <li><a href="phong-ban-trung-tam" title="KHOA/PHÒNG/TRUNG TÂM"><i class="far fa-angle-right"></i> KHOA/PHÒNG/TRUNG TÂM</a>              </li>
-                      </div>
-        </ul>
-            <span class="icon_down"><i class="fas fa-chevron-down"></i></span>    </li>
-    <li class="icon_menu "><a href="chuong-trinh-hoc" title="Chương trình học">Chương trình học</a>
-      <span class="icon_down"><i class="fas fa-chevron-down"></i></span>
-              <ul>
-                          <li><a href="dao-tao-cu-nhan" title="Đào tạo đại học"><i class="far fa-angle-right"></i> Đào tạo đại học</a>              </li>
-                          <li><a href="dao-tao-sau-dai-hoc" title="Đào tạo sau đại học"><i class="far fa-angle-right"></i> Đào tạo sau đại học</a>              </li>
-                          <li><a href="dao-tao-van-bang-2" title="ĐÀO TẠO VĂN BẰNG 2"><i class="far fa-angle-right"></i> ĐÀO TẠO VĂN BẰNG 2</a>              </li>
-                          <li><a href="khung-chuong-trinh-dao-tao" title="KHUNG CHƯƠNG TRÌNH ĐÀO TẠO"><i class="far fa-angle-right"></i> KHUNG CHƯƠNG TRÌNH ĐÀO TẠO</a>              </li>
-                          <li><a href="de-an-mo-nganh" title="ĐỀ ÁN MỞ NGÀNH"><i class="far fa-angle-right"></i> ĐỀ ÁN MỞ NGÀNH</a>              </li>
-                          <li><a href="tap-chi-kh-oa-hoc" title="TẠP CHÍ KHOA HỌC"><i class="far fa-angle-right"></i> TẠP CHÍ KHOA HỌC</a>              </li>
-                    </ul>
-          </li>
-    <li class="icon_menu "><a href="trai-nghiem-sinh-vien" title="Trải nghiệm sinh viên">Trải nghiệm sinh viên</a>
-      <span class="icon_down"><i class="fas fa-chevron-down"></i></span>
-              <ul>
-                          <li><a href="thong-bao" title="THÔNG BÁO"><i class="far fa-angle-right"></i> THÔNG BÁO</a>              </li>
-                          <li><a href="hoat-dong-sinh-vien" title="HOẠT ĐỘNG SINH VIÊN"><i class="far fa-angle-right"></i> HOẠT ĐỘNG SINH VIÊN</a>              </li>
-                    </ul>
-          </li>
-    <li class="icon_menu "><a href="goc-truyen-thong" title="Góc truyền thông">Góc truyền thông</a></li>
-    <li><a target="blank" href="https://tuyensinh.giadinh.edu.vn/">Tuyển sinh</a></li>
-    <li class="icon_menu "><a href="doanh-nghiep" title="Tuyển Dụng -  Việc Làm">Tuyển Dụng -  Việc Làm</a></li>
-          <li><a target="blank" href="https://giadinh.edu.vn/dao-tao-sau-dai-hoc">Sau Đại Học</a></li>
-          <li><a target="blank" href="https://giadinh.edu.vn/de-an-tuyen-sinh-truong-dai-hoc-gia-dinh-nam-2024">Đề án TS</a></li>
-          <li><a target="blank" href="https://giadinh.edu.vn/truong-dai-hoc-gia-dinh-thong-bao-3-cong-khai-nam-hoc">Ba công khai</a></li>
-          <li><a target="blank" href="https://sinhvien.giadinh.edu.vn/">Xem điểm</a></li>
-          <li><a target="blank" href="https://lms.giadinh.edu.vn/">E-learning</a></li>
-          <li><a target="blank" href="https://library.giadinh.edu.vn/search">Thư viện số</a></li>
-          <li><a target="blank" href="https://drive.google.com/file/d/1i0dE785sZgkMck2-j_z-kUJT8dYFWZFn/view?usp=sharing">E-Brochure</a></li>
-       
-        <li><a href="lien-he">Liên hệ</a></li>
-  </ul>
-</div>			<div class="menu_mobile">
-				<a>
-					<i class="fal fa-bars"></i>				</a>
-			</div>
-			<div class="search-menu">
-				<div class="icon-search">
-					<i class="fal fa-search"></i>				</div>
-				<form class="form_search" name="form_search">
-					<input type="text" name="keywords" placeholder="Nhập từ khóa......">
-					<button type="submit"><i class="far fa-search"></i></button>
-				</form>
-			</div>
-		</div>
-	</div>
+    <div class="header_top">
+        <div class="container_main">
+            <h2 style="color:white;padding:10px;">
+                DEMO DANH SÁCH SINH VIÊN JSP
+            </h2>
+        </div>
+    </div>
 </header>
 
 <%
-String tenlop="HCE_JAVA_K20";
+    String tenlop = "HCE_JAVA_K20";
+
+    // =========================
+    // TẠO DANH SÁCH SINH VIÊN
+    // =========================
+    List<Sinhvien> ds = new ArrayList<Sinhvien>();
+
+    ds.add(new Sinhvien("SV001","Nguyễn Văn An",
+            "https://i.pravatar.cc/80?img=1",
+            "CNTT01","an@gmail.com","0901111111"));
+
+    ds.add(new Sinhvien("SV002","Trần Thị Bình",
+            "https://i.pravatar.cc/80?img=2",
+            "CNTT01","binh@gmail.com","0902222222"));
+
+    ds.add(new Sinhvien("SV003","Lê Minh Cường",
+            "https://i.pravatar.cc/80?img=3",
+            "CNTT02","cuong@gmail.com","0903333333"));
+
+    ds.add(new Sinhvien("SV004","Phạm Thị Dung",
+            "https://i.pravatar.cc/80?img=4",
+            "CNTT02","dung@gmail.com","0904444444"));
+
+    ds.add(new Sinhvien("SV005","Hoàng Gia Huy",
+            "https://i.pravatar.cc/80?img=5",
+            "CNTT03","huy@gmail.com","0905555555"));
+
+    ds.add(new Sinhvien("SV006","Đỗ Thanh Lan",
+            "https://i.pravatar.cc/80?img=6",
+            "CNTT03","lan@gmail.com","0906666666"));
+
+    ds.add(new Sinhvien("SV007","Võ Quốc Nam",
+            "https://i.pravatar.cc/80?img=7",
+            "CNTT04","nam@gmail.com","0907777777"));
+
+    ds.add(new Sinhvien("SV008","Bùi Khánh Ngọc",
+            "https://i.pravatar.cc/80?img=8",
+            "CNTT04","ngoc@gmail.com","0908888888"));
+
+    ds.add(new Sinhvien("SV009","Nguyễn Minh Phúc",
+            "https://i.pravatar.cc/80?img=9",
+            "CNTT05","phuc@gmail.com","0909999999"));
+
+    ds.add(new Sinhvien("SV010","Trương Mỹ Tiên",
+            "https://i.pravatar.cc/80?img=10",
+            "CNTT05","tien@gmail.com","0910000000"));
 %>
+
+<!-- CONTENT -->
 <div class="news-home">
-	<div class="container_main" style="min-height:500px;">
-	Xin chào các bạn <%=tenlop%>
-	</div>
+    <div class="container_main" style="min-height:600px;">
+
+        <div class="title">
+            DANH SÁCH SINH VIÊN - <%=tenlop%>
+        </div>
+
+        <table class="table_sv">
+
+            <tr>
+                <th>STT</th>
+                <th>Mã SV</th>
+                <th>Ảnh</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+            </tr>
+
+            <%
+                int stt = 1;
+
+                for(Sinhvien sv : ds){
+            %>
+
+            <tr>
+                <td><%=stt++%></td>
+
+                <td><%=sv.getId()%></td>
+
+                <td>
+                    <img src="<%=sv.getAnh()%>" />
+                </td>
+
+                <td><%=sv.getHoten()%></td>
+
+                <td><%=sv.getLop()%></td>
+
+                <td><%=sv.getEmail()%></td>
+
+                <td><%=sv.getSodienthoai()%></td>
+            </tr>
+
+            <%
+                }
+            %>
+
+        </table>
+
+    </div>
 </div>
 
-
-
+<!-- FOOTER -->
 <footer id="footer">
-  <div class="footer">
-    <div class="container_main">
-      <div class="logo_footer">
-        <a href="">
-          <img src="./assets/images/logo.png" alt="Logo">        </a>      </div>
-      <div class="content_footer">
-        <h2>TRƯỜNG CAO ĐẲNG KINH TẾ THÀNH PHỐ HỒ CHÍ MINH</h2>
-        <p>33 Vĩnh Viễn, Phường 02, Quận 10, Thành phố Hồ Chí Minh</p>
-
-<p>Hotline: 0961 12 10 18 - 0962 12 10 18 - 0862 12 10 18</p>
-
-<p>Điện thoại: (028)7301.3456</p>
-
-<p>Email: tuyensinh@hce.edu.vn</p>
-      </div> 
-      <div class="banner_footer">
-             </div>
+    <div class="copyright">
+        <div class="container_main">
+            <p>© 2026 Demo JSP Sinh Viên</p>
+        </div>
     </div>
-  </div>
-  <div class="copyright">
-    <div class="container_main">
-      <p>© 2024 Demo bởi thầy Gia.<a> | Sitemap</a></p>
-    </div>
-  </div>
 </footer>
 
 </body>
+</html>
