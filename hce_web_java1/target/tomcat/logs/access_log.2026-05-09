@@ -25,3 +25,13 @@
 0:0:0:0:0:0:0:1 - - [09/May/2026:01:43:09 +0000] "GET /assets/css/menu.css HTTP/1.1" 304 - http-bio-8080-exec-1 1
 0:0:0:0:0:0:0:1 - - [09/May/2026:01:43:09 +0000] "GET /assets/fonts/RobotoSlab-Bold/RobotoSlab-Bold.woff HTTP/1.1" 304 - http-bio-8080-exec-10 1
 0:0:0:0:0:0:0:1 - - [09/May/2026:01:43:09 +0000] "GET /assets/fonts/RobotoSlab-Regular/RobotoSlab-Regular.woff HTTP/1.1" 304 - http-bio-8080-exec-4 1
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET / HTTP/1.1" 200 13003 http-bio-8080-exec-8 99
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/css/layout.css HTTP/1.1" 304 - http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/css/jquery.mmenu.all.css HTTP/1.1" 304 - http-bio-8080-exec-5 0
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/images/logo.png HTTP/1.1" 304 - http-bio-8080-exec-2 2
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/css/fonts.css HTTP/1.1" 304 - http-bio-8080-exec-7 3
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/css/menu.css HTTP/1.1" 304 - http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:02 +0000] "GET /assets/fonts/RobotoSlab-Bold/RobotoSlab-Bold.woff HTTP/1.1" 304 - http-bio-8080-exec-8 1
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:03 +0000] "GET /assets/fonts/RobotoSlab-Regular/RobotoSlab-Regular.woff HTTP/1.1" 304 - http-bio-8080-exec-4 3
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:33 +0000] "GET /?id=85fc8f8e-3369-4c6d-8357-5ccfa3a7c34b&vscodeBrowserReqId=1778292033509 HTTP/1.1" 200 13003 http-bio-8080-exec-4 2
+0:0:0:0:0:0:0:1 - - [09/May/2026:02:00:58 +0000] "GET /?id=85fc8f8e-3369-4c6d-8357-5ccfa3a7c34b&vscodeBrowserReqId=1778292058647 HTTP/1.1" 200 13003 http-bio-8080-exec-8 1

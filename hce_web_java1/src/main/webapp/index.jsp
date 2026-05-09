@@ -186,10 +186,12 @@
 	</div>
 </header>
 
-
+<%
+String tenlop="HCE_JAVA_K20";
+%>
 <div class="news-home">
 	<div class="container_main" style="min-height:500px;">
-	NỘI DUNG SẼ TRÌNH BÀY VÀO ĐÂY
+	Xin chào các bạn <%=tenlop%>
 	</div>
 </div>
 
